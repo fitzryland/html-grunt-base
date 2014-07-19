@@ -1,8 +1,22 @@
 // CONTENT
 // This file contains all non printing styles other than layout.
 
-$white: #ffffff;
-$black: #000000;
+// colors by name
+$color-white: #ffffff;
+$color-black: #000000;
+$color-gray: #888888;
+
+// colors by category
+$colors-kind: (
+  primary: $color-black,
+  secondary: $color-white,
+  tertiary: $color-gray,
+);
+$colors-application: (
+  color: applyColor('primary'),
+  link: applyColor('tertiary'),
+);
+
 
 $font-trebuchet: ("Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif);
 
@@ -16,7 +30,10 @@ $size-vertical: 2.5em;
   @return $mapItem;
 }
 @function color($colorTree) {
-  @return map($color, $colorTree);
+  @return map($colors-application, $colorTree);
+}
+@function applyColor($colorTree) {
+  @return map($colors-kind, $colorTree);
 }
 @mixin group {
   &:after {
