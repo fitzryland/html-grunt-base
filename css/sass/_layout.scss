@@ -54,24 +54,18 @@ $layouts: (
 		}
 	}
 }
-@mixin full {
+@mixin content_full {
 	margin-right: 0;
 	margin-left: 0;
 	padding: 0;
 	width: 100%;
 	@include group;
 }
-@mixin wrap {
+@mixin content_center {
 // max width 1030px -> 64.375 em
 	margin: 0 auto;
 	max-width: 65.375em;
 	padding-right: 0.5em;
 	padding-left: 0.5em;
-	@include group;
-}
-@mixin row {
-	clear: both;
-	display: block;
-	float: none;
 	@include group;
 }
