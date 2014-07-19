@@ -1,3 +1,66 @@
+.site_main {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+  width: 100%;
+}
+.site_main:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cols {
+  margin: 0 auto;
+  max-width: 65.375em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+.cols:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (min-width: 0em) and (max-width: 37.5em) {
+  .col {
+    width: 17.24138%;
+    float: left;
+    margin-left: 3.44828%;
+  }
+  .col:nth-child(5n + 1) {
+    margin-left: 0;
+  }
+}
+@media (min-width: 37.5em) and (max-width: 62em) {
+  .col {
+    width: 10.6383%;
+    float: left;
+    margin-left: 2.12766%;
+  }
+  .col:nth-child(8n + 1) {
+    margin-left: 0;
+  }
+}
+@media (min-width: 62em) {
+  .col {
+    width: 5.26316%;
+    float: left;
+    margin-left: 1.05263%;
+  }
+  .col:nth-child(16n + 1) {
+    margin-left: 0;
+  }
+}
+.oldie .col {
+  width: 5.26316%;
+  float: left;
+  margin-left: 1.05263%;
+}
+.oldie .col:nth-child(16n + 1) {
+  margin-left: 0;
+}
+
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -627,4 +690,25 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
+}
+.col {
+  background-color: yellow;
+  margin-top: 1em;
+  min-height: 3em;
+}
+@media (min-width: 37.5em) and (max-width: 62em) {
+  .col {
+    background-color: orange;
+    min-height: 5em;
+  }
+}
+@media (min-width: 62em) {
+  .col {
+    background-color: red;
+    min-height: 8em;
+  }
+}
+.oldie .col {
+  background-color: red;
+  min-height: 8em;
 }

@@ -2,6 +2,15 @@
 // This file includes all of the application of styles to specific elements.
 // will likely be broken into multiple files as needed.
 .col {
+	background-color: yellow;
 	margin-top: 1em;
 	min-height: 3em;
+	@include bp(medium) {
+		background-color: orange;
+		min-height: 5em;
+	}
+	@include bp(large) {
+		background-color: red;
+		min-height: 8em;
+	}
 }

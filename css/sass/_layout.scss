@@ -22,11 +22,6 @@ $layouts: (
 			columns: 8,
 		)
 	),
-	medium-early: (
-		break: 37.5em 42em,
-		grid: (
-			columns: 8,
-		)),
 	medium-andup: (
 		break: 37.5em,
 		grid: (
@@ -42,7 +37,7 @@ $layouts: (
 		fallback: ".oldie"
 	)
 );
-@mixin bp($break-name) {
+@mixin bp-layout($break-name) {
 	$layout: map-get($layouts, $break-name);
 	@if map-has-key($layout, "fallback") {
 		@include susy-breakpoint(map-get($layout, "break"), map-get($layout, "grid"), map-get($layout, "fallback")) {
@@ -50,6 +45,18 @@ $layouts: (
 		}
 	} @else {
 		@include susy-breakpoint(map-get($layout, "break"), map-get($layout, "grid")) {
+			@content;
+		}
+	}
+}
+@mixin bp($break-name) {
+	$layout: map-get($layouts, $break-name);
+	@if map-has-key($layout, "fallback") {
+		@include breakpoint(map-get($layout, "break"), map-get($layout, "fallback")) {
+			@content;
+		}
+	} @else {
+		@include breakpoint(map-get($layout, "break")) {
 			@content;
 		}
 	}
@@ -68,4 +75,31 @@ $layouts: (
 	padding-right: 0.5em;
 	padding-left: 0.5em;
 	@include group;
+}
+
+.site_main {
+	@include content_full;
+}
+.cols {
+	@include content_center;
+}
+.col {
+	@include bp-layout(small) {
+		@include span(1);
+		&:nth-child(5n + 1) {
+			margin-left: 0;
+		}
+	}
+	@include bp-layout(medium) {
+		@include span(1);
+		&:nth-child(8n + 1) {
+			margin-left: 0;
+		}
+	}
+	@include bp-layout(large) {
+		@include span(1);
+		&:nth-child(16n + 1) {
+			margin-left: 0;
+		}
+	}
 }
